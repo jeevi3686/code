@@ -1,24 +1,22 @@
 class Solution {
     public boolean canConstruct(String ransomNote, String magazine) {
        
-        HashMap<Character,Integer> ran = new HashMap<>();
+        
         HashMap<Character,Integer> mag = new HashMap<>();
 
-        for(char ch : ransomNote.toCharArray()){
-            ran.put(ch,ran.getOrDefault(ch,0)+1);
-
-        }
+        
 
         for(char ch : magazine.toCharArray()){
             mag.put(ch,mag.getOrDefault(ch,0)+1);
 
         }
 
-        for(char ch:ransomNote.toCharArray()){
-            if(mag.getOrDefault(ch,0)<ran.get(ch)){
+        for(char ch : ransomNote.toCharArray()){
+            if(!mag.containsKey(ch) || mag.get(ch)==0){
                 return false;
             }
             
+            mag.put(ch,mag.get(ch)-1);
         }
         return true;
     }
