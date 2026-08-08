@@ -10,12 +10,12 @@ class Solution {
             if(i>0  && nums[i]==nums[i-1]) continue;
             int low = i+1;
             int high = n-1;
-            int target = -1 * nums[i];
+            
 
             while(low<high){
-                int sum = nums[low]+nums[high];
+                int sum = nums[low]+nums[high] + nums[i];
 
-                if(sum == target){
+                if(sum == 0){
                     res.add(Arrays.asList(nums[i],nums[low],nums[high]));
                     low++;
                     high--;
@@ -24,7 +24,7 @@ class Solution {
                     while(low<high && nums[high]==nums[high+1]) high--;
                 }
 
-                else if(sum > target){
+                else if(sum > 0){
                     high--;
                 }
                 else{
