@@ -5,18 +5,18 @@ class Solution {
         arr[left]=arr[right];
         arr[right]=temp;
     }
-    public void sortColors(int[] nums) {
+    public static void sortColors(int[] nums) {
         int n = nums.length;
 
-        int left = 0;
+        int left =0;
         int mid=0;
-        int right = n-1;
+        int right =n-1;
 
         while(mid<=right){
             if(nums[mid]==0){
                 swap(nums,left,mid);
-                left++;
                 mid++;
+                left++;
             }
             else if(nums[mid]==1){
                 mid++;
